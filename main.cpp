@@ -54,6 +54,8 @@ int main(int argc, char* argv[]) {
     int pizza_count = 0;
     double frac_pizzas = 0;
 
+    char answer = " ";
+
     cout << "Welcome to my Pizza Party!!" << endl;
     cout << "Enter the number of people, average number of slices per person, and the cost of a pizza separated by a space:";
 
@@ -72,6 +74,8 @@ int main(int argc, char* argv[]) {
     cout << "Tax:             $" << total_tax << endl;
     cout << "Delivery:        $" << total_delivery_cost << endl;
     cout << "Total Cost: $"    << total_cost << endl; 
+
+    cout << "\nDo you want to enter more (y/n): ";
 
 
     
