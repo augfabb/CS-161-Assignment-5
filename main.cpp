@@ -34,9 +34,9 @@
 
 // ------------- CODE -------------
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 using namespace std;
-
 
 int main(int argc, char* argv[]) { 
 
@@ -48,35 +48,42 @@ int main(int argc, char* argv[]) {
     const double sales_tax = 0.07;
     double total_tax = 0.2;
 
-    const double delivery_fee;
+    const double delivery_fee = 0.0;
     double total_delivery_cost;
     
     int pizza_count = 0;
     double frac_pizzas = 0;
 
-    char answer = " ";
+    char answer = 'y';
 
     cout << "Welcome to my Pizza Party!!" << endl;
-    cout << "Enter the number of people, average number of slices per person, and the cost of a pizza separated by a space:";
-
+    
+    cout << fixed << setprecision(2);
     //calc pizzas needed
-    cin >> num_people >> average_slices >> pizza_cost;
-    frac_pizzas = num_people * average_slices;
-    pizza_count = ceil(frac_pizzas);
-    //other calc
-    total_pizza_cost = pizza_cost * pizza_count;
-    total_tax = total_pizza_cost * sales_tax;
-    total_delivery_cost = (total_pizza_cost + total_tax) * delivery_fee;
-    total_cost = total_pizza_cost + total_tax + total_delivery_cost;
+ 
     //main output
-    cout << "\nNumber of pizzas: $" << pizza_count << endl;
-    cout << "Cost of pizzas: $" << total_pizza_cost << endl;
-    cout << "Tax:             $" << total_tax << endl;
-    cout << "Delivery:        $" << total_delivery_cost << endl;
-    cout << "Total Cost: $"    << total_cost << endl; 
+    do {
+      cout << "Enter the number of people, average number of slices per person, and the cost of a pizza separated by a space:";
+      
+      cin >> num_people >> average_slices >> pizza_cost;
+      frac_pizzas = num_people * average_slices;
+      pizza_count = ceil(frac_pizzas);
+    //other calc
+      total_pizza_cost = pizza_cost * pizza_count;
+      total_tax = total_pizza_cost * sales_tax;
+      total_delivery_cost = (total_pizza_cost + total_tax) * delivery_fee;
+      total_cost = total_pizza_cost + total_tax + total_delivery_cost;
+      cout << "\nNumber of pizzas: $" << pizza_count << endl;
+      cout << "Cost of pizzas: $" << total_pizza_cost << endl;
+      cout << "Tax:             $" << total_tax << endl;
+      cout << "Delivery:        $" << total_delivery_cost << endl;
+      cout << "Total Cost:      $" << total_cost << endl; 
 
-    cout << "\nDo you want to enter more (y/n): ";
+      cout << "\nDo you want to enter more (y/n): ";
+      cin >> answer;
+    } while (answer == 'y');
 
+    
 
     
 
